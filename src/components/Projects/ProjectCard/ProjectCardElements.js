@@ -15,12 +15,12 @@ export const Card = styled.div`
 `;
 
 export const CardLeft = styled.div`
-  background: #151418;
   border-radius: 5px;
   padding: 5px;
   justify-self: center;
 
   img {
+    max-height: 410px;
     border-radius: 3px;
     height: auto;
   }
@@ -61,9 +61,9 @@ export const Stack = styled.div`
   margin-bottom: 5px;
 
   .stackTitle {
-    font-weight: 500;
+    font-weight: 600;
     margin-right: 10px;
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .tags {

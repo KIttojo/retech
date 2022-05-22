@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import styled from "styled-components";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as ScrollLink } from "react-router-dom";
 
 const SiderBar = styled.div`
   background: #151418;
@@ -64,38 +64,20 @@ function Dropdown({ isOpen, toggle }) {
         <NavLink
           onClick={toggle}
           className="menu-item"
-          to="projects"
+          to="/"
           smooth={true}
         >
-          Projects
+          Сдать технику
         </NavLink>
         <NavLink
           onClick={toggle}
           className="menu-item"
-          to="about"
+          to="/shop"
           smooth={true}
         >
-          About
-        </NavLink>
-        <NavLink
-          onClick={toggle}
-          className="menu-item"
-          to="contact"
-          smooth={true}
-        >
-          Contact
+          В магазин
         </NavLink>
       </NavMenu>
-      <NavBtn onClick={toggle}>
-        <a
-          className="btn PrimaryBtn"
-          href="https://github.com/gurupawar/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Resume
-        </a>
-      </NavBtn>
     </SiderBar>
   );
 }

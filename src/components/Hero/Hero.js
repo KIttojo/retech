@@ -23,22 +23,22 @@ function Hero() {
       <HeroContainer>
         <HeroWrapper>
           <HeroLeft>
-            <h1>Hi, I'm YourName</h1>
-            <h5>Frontend Developer</h5>
+            <h1>Привет!</h1>
+            <h5>Мы работаем с 2018 года в 15 городах России</h5>
             <p>
-              I design and code beautifully simple things, and I love what I do.
+              Благодаря нам вы можете не только избавляться от ненужной старой техники, но также и приобретать б/у технику по низким ценам.
             </p>
           </HeroLeft>
           <HeroRight>
             <Image
-              src="https://raw.githubusercontent.com/gurupawar/website/main/src/Assets/man-svgrepo-com.svg"
+              src="https://cdn-icons-png.flaticon.com/512/7139/7139363.png"
               alt="man-svgrepo"
             />
           </HeroRight>
         </HeroWrapper>
         <ScrollDown to="projects">
           <ScrollLink>
-            Scroll down
+            Вниз
             <img
               src="https://raw.githubusercontent.com/gurupawar/website/main/src/Assets/scroll-down.svg"
               alt="scroll-down"

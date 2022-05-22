@@ -4,6 +4,13 @@ export const ContactWrapper = styled.div`
   margin: 5rem 0;
 `;
 
+export const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+`;
+
 export const Email = styled.div`
   display: flex;
   align-items: center;
@@ -25,7 +32,7 @@ export const Email = styled.div`
     flex-direction: row;
     span {
       margin-bottom: 0;
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
 `;

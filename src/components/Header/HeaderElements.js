@@ -25,14 +25,36 @@ export const NavLink = styled(ScrollLink)`
 `;
 export const Logo = styled(LinkRouter)`
   img {
-    width: 47px;
-    height: 47px;
+    width: 115px;
   }
 `;
+
+export const RightPart = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Cart = styled(LinkRouter)`
+  img {
+    height: 35px;
+    margin-right: 30px;
+  }
+`;
+
 
 export const Bars = styled(FaBars)`
   display: none;
   color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const BarsDark = styled(FaBars)`
+  display: none;
+  color: #000;
   font-size: 1.8rem;
   cursor: pointer;
   @media screen and (max-width: 768px) {
@@ -46,7 +68,7 @@ export const NavMenu = styled.div`
   margin-right: -24px;
 
   .menu-item + .menu-item {
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
   @media screen and (max-width: 768px) {
     display: none;
