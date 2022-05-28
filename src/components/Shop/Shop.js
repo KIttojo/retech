@@ -56,7 +56,7 @@ export const SelectCity = ({city, setCity}) => {
   );
 }
 
-export const Products = ({selectedCity}) => {
+export const Products = ({selectedCity, addToCard}) => {
   const [products, setProducts] = useState([]);
   const [hasProducts, setHasProducts] = useState(0);
 
@@ -78,7 +78,7 @@ export const Products = ({selectedCity}) => {
         <ProductList>
           {products.map((item, id) => {
             return <React.Fragment key={`product-${id}`}>
-              <Card item={item} selectedCity={selectedCity}/>
+              <Card item={item} selectedCity={selectedCity} addToCard={addToCard}/>
             </React.Fragment>
           })}
         </ProductList>
@@ -89,8 +89,8 @@ export const Products = ({selectedCity}) => {
   );
 }
 
-export const Card = ({item, selectedCity}) => {
-  const {city, description, images, name, price, inStock} = item;
+export const Card = ({item, selectedCity, addToCard}) => {
+  const {city, description, images, name, price, inStock, id} = item;
   const [showingDescription, setShowingDescription] = useState(false);
   const [showingPics, setShowingPics] = useState(false);
   const { modalHeight, modalWidth } = useWindowDimensions();
@@ -142,7 +142,7 @@ export const Card = ({item, selectedCity}) => {
           </Expand>
   
           <ProductFooter>
-            <AddToCardBtn>В корзину</AddToCardBtn>
+            <AddToCardBtn onClick={() => addToCard(id)}>В корзину</AddToCardBtn>
             <p>{price}₽</p>
           </ProductFooter>
         </ProductContainer>

@@ -13,6 +13,27 @@ export const getProducts = async () => {
   return arr;
 }
 
+export const getOrders = async () => {
+  const querySnapshot = await getDocs(collection(db, "orders"));
+  const arr = [];
+
+  querySnapshot.forEach((doc) => arr.push(doc.data()));
+
+  return arr;
+}
+
+export const getUserProducts = async (ids) => {
+  const querySnapshot = await getDocs(collection(db, "123123123"));
+  const arr = [];
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    if (ids.includes(data.id)) arr.push(data);
+  });
+
+  return arr;
+}
+
 export const addDoc = () => {
   const newId = new Date().valueOf().toString();
 
@@ -25,6 +46,25 @@ export const addDoc = () => {
     type: "phone",
     inStock: true,
   })
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+}
+
+export const addOrder = (data) => {
+  const newId = new Date().valueOf().toString();
+  const order = {...data};
+  console.log("cik-", order)
+
+  setDoc(doc(db, "orders", newId), order)
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+}
+
+export const addRequest = (data) => {
+  const newId = new Date().valueOf().toString();
+  const request = {...data};
+
+  setDoc(doc(db, "requests", newId), request)
   .then(res => console.log(res))
   .catch(err => console.log(err));
 }

@@ -33,16 +33,17 @@ const Header = ({ toggle }) => {
           </NavMenu>
         }
         <NavBtn>
-          {pathname === '/' ? 
-            <Link to="/shop">
-              <div className="btn PrimaryBtn">В магазин</div>
-            </Link> :
+          {pathname === '/shop' ? 
             <RightPart>
-              <Cart to='/'><img src={cartIcon} alt="cart"/></Cart>
+              <Cart to='/cart'><img src={cartIcon} alt="cart"/></Cart>
               <Link to="/">
                 <div className="btn PrimaryBtn">На главную</div>
               </Link>
-            </RightPart>
+            </RightPart> :
+              <Link to="/shop">
+              <div className="btn PrimaryBtn">В магазин</div>
+            </Link>
+
           }
         </NavBtn>
         {pathname === '/' ? <Bars onClick={toggle} /> : <BarsDark onClick={toggle} />}
