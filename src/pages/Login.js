@@ -1,28 +1,25 @@
 import React, {useState} from 'react';
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
 import { Container, Title, PasswordInput, Button, Paper, TextInput } from '@mantine/core';
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setIsSignedIn}) => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-  console.log("LOG_n", email)
-  console.log("pas=", pass)
+  let navigate = useNavigate();
 
   const authUser = () => {
     const auth = getAuth();
   
     signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
-        console.log("user=", user)
-        // ...
+        localStorage.setItem('logged', JSON.stringify(true));
+        setIsSignedIn(true);
+        navigate("../admin", { replace: true });
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("errorMessage=", errorMessage)
-        // ..
+      .catch(() => {
+        alert("Такого пользователя не существует");
       });
   
   };

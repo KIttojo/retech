@@ -18,6 +18,10 @@ import {ReactComponent as CloseIcon} from '../../Assets/closeIcon.svg';
 import { getProducts } from '../../api/firebase';
 import {useWindowDimensions} from '../../hooks';
 
+const addToCard = () => {
+  
+}
+
 export const SelectCity = ({city, setCity}) => {
   const styles = {
     borderRadius: '3px',

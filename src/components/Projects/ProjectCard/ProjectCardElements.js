@@ -71,9 +71,3 @@ export const Stack = styled.div`
     font-weight: 400;
   }
 `;
-
-export const BtnGroup = styled.div`
-  height: 70px;
-  display: flex;
-  align-items: center;
-`;

@@ -5,7 +5,6 @@ import {
   CardLeft,
   CardRight,
   Stack,
-  BtnGroup,
 } from "./ProjectCardElements";
 function ProjectCard() {
   return (
@@ -26,24 +25,6 @@ function ProjectCard() {
                 </>
               }
             </Stack>
-            <BtnGroup>
-              <a
-                className="btn btn2 SecondarBtn"
-                href={list.github_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Github
-              </a>
-              <a
-                className="btn PrimaryBtn"
-                href={list.demo_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Demo ➜
-              </a>
-            </BtnGroup>
           </CardRight>
         </Card>
       ))}

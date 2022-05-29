@@ -1,13 +1,16 @@
 import React from "react";
 import { ContactWrapper, Email, Form } from "./ContactElements";
 import { useState } from "react";
+import {addRequest} from "../../api/firebase";
 
 const Contact = () => {
   const [data, setData] = useState({
     name: "",
     category: "",
     description: "",
-    images: [],
+    address: "",
+    phone: "",
+    status: "Новое"
   });
 
   const handleInput = (value, type) => {
@@ -17,6 +20,10 @@ const Contact = () => {
         [type]: value,
       }
     })
+  }
+
+  const pusData = () => {
+    addRequest(data);
   }
 
   return (
@@ -32,6 +39,16 @@ const Contact = () => {
               onChange={(e) => handleInput(e.target.value, 'name')}
               className="FormField" 
               placeholder="Ваше имя" 
+            />
+            <input
+              onChange={(e) => handleInput(e.target.value, 'address')}
+              className="FormField" 
+              placeholder="Ваш адрес" 
+            />
+            <input
+              onChange={(e) => handleInput(e.target.value, 'phone')}
+              className="FormField" 
+              placeholder="Телефон"
             />
             <select className="FormField" onChange={(e) => handleInput(e.target.value, 'category')}>
               <option value="" disabled>Категория товара</option>
@@ -54,15 +71,20 @@ const Contact = () => {
               className="FormField TextArea" 
               placeholder="О товаре" 
             />
-            <input 
-              onChange={(e) => handleInput(e.target.value, 'images')}
+            {/* <input 
+              // onChange={(e) => handleInput(e.target.value, 'images')}
+              onChange={(e) => console.log(e.target.files)}
               type="file" 
               id="file" 
               name="file" 
               multiple 
-            />
+            /> */}
 
-            <input className="btn PrimaryBtn sendForm" type="submit" />
+            <input 
+              className="btn PrimaryBtn sendForm" 
+              type="submit" 
+              onClick={() => pusData()}
+            />
             
           </Form>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
@@ -10,6 +10,8 @@ import Admin from "./pages/Admin";
 import Cart from "./pages/Cart";
 
 function App() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('card'));
     if (!data) {
@@ -17,6 +19,12 @@ function App() {
       localStorage.setItem('card', JSON.stringify([]));
     }
   }, []);
+
+  useEffect(() => {
+    const storage = JSON.parse(localStorage.getItem('logged'));
+    if (storage == true) setIsSignedIn(true);
+    console.log('LOG CHANGED');
+  }, [isSignedIn]);
   
   return (
     <BrowserRouter>
@@ -24,9 +32,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login setIsSignedIn={setIsSignedIn}/>} />
+
+        {isSignedIn && <Route path="/admin" element={<Admin setIsSignedIn={setIsSignedIn}/>} />}
+        {/* <Route path="/register" element={<Register />} /> */}
+        <Route path="/*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

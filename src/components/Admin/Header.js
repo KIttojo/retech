@@ -56,9 +56,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-export function HeaderAction({activeTab, setActiveTab}) {
+export function HeaderAction({activeTab, setActiveTab, setIsSignedIn}) {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
+
+  const signOut = () => {
+    setIsSignedIn(false);
+    localStorage.setItem('logged', JSON.stringify(false));
+  }
 
   return (
     <Header height={HEADER_HEIGHT} sx={{ borderBottom: 0 }} mb={120}>
@@ -89,7 +94,7 @@ export function HeaderAction({activeTab, setActiveTab}) {
             </Center>
           </div>
         </Group>
-        <Button radius="xl" sx={{ height: 30 }}>
+        <Button radius="xl" sx={{ height: 30 }} onClick={() => signOut()}>
           Выход
         </Button>
       </Container>
