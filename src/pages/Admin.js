@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-// import {addDoc} from "../api/firebase";
 import Orders from '../components/Admin/Orders';
 import Requests from '../components/Admin/Requests';
 import {HeaderAction} from '../components/Admin/Header';

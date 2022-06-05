@@ -33,7 +33,7 @@ const Shop = () => {
       <Dropdown isOpen={isOpen} toggle={toggle} />
       {/* <Login /> */}
       <SelectCity city={city} setCity={setCity}/>
-      <Products selectedCity={city}/>
+      <Products selectedCity={city} addToCard={addToCard}/>
       {/* <About /> */}
     </div>
     );
